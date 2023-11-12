@@ -1,0 +1,24 @@
+function rot13(str) {
+  // To turn the given string to an array
+  let arr = str.split("");
+
+  let alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" ]
+
+  // To iterate through the alphabet library and replace every letter of str by coressponding letter in our library. 
+  for (let i = 0; i < arr.length; i++) {
+   // The method ".indexOf" helps us know if an array includes an element or not.
+   let index = alphabet.indexOf(arr[i])
+   // if str's character exists in alphabet go forward to find the decoded letter.
+   if(index != -1){
+     if(index + 13 >= 26){
+       arr[i] = alphabet[index +13 -26]
+     } else {
+       arr[i] = alphabet[index +13];
+     }  
+   }  
+  }
+  // To return string version of fonal array use .join() method
+  return arr.join("");
+}
+
+rot13("SERR PBQR PNZC");
